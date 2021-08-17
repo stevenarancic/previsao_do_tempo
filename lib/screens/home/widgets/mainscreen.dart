@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:previsao_do_tempo/shared/find_icon.dart';
 
 class MainScreen extends StatelessWidget {
   final Map data;
@@ -29,13 +30,33 @@ class MainScreen extends StatelessWidget {
                   this.data['date'],
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
-                SvgPicture.asset("assets/images/chuva_forte.svg"),
+                SizedBox(
+                  height: 37,
+                ),
+                SvgPicture.asset(
+                  findIcon(
+                    this.data['condition_slug'],
+                  ),
+                  width: 50,
+                  height: 50,
+                ),
                 Text(
                   this.data['temp'].toString(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 Text(
                   this.data['description'],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SvgPicture.asset(
+                    "assets/images/vento.svg",
+                    width: 50,
+                    height: 50,
+                  ),
+                ),
+                Text(
+                  this.data['wind_speedy'],
                 ),
               ],
             ),
