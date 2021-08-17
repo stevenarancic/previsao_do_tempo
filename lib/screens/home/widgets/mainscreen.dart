@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-  final data;
+  final Map data;
 
   const MainScreen({
     Key? key,
@@ -15,6 +15,17 @@ class MainScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Text(
+                  this.data["city"],
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                Text(
+                  this.data['date'],
+                )
+              ],
+            ),
           ),
         ),
       ),

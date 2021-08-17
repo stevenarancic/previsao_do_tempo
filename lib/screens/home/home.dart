@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
             );
           default:
             return MainScreen(
-              data: snapshot.data,
+              data: snapshot.data["results"],
             );
         }
         ;
