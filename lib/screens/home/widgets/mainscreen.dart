@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+
+class MainScreen extends StatelessWidget {
+  final data;
+
+  const MainScreen({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+          ),
+        ),
+      ),
+    );
+  }
+}
