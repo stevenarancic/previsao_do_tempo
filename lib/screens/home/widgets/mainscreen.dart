@@ -41,11 +41,12 @@ class MainScreen extends StatelessWidget {
                   height: 50,
                 ),
                 Text(
-                  this.data['temp'].toString(),
+                  "${this.data['temp'].toString()}°",
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 Text(
                   this.data['description'],
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
