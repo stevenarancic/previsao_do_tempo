@@ -12,10 +12,21 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      builder: (BuildContext _, AsyncSnapshot snap) {
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+      builder: (BuildContext _, AsyncSnapshot snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          default:
+            return Center(
+              child: Text("aaaa"),
+            );
+        }
+        ;
       },
       future: getData(),
     );
