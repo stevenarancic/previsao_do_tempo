@@ -58,6 +58,7 @@ class MainScreen extends StatelessWidget {
                 ),
                 Text(
                   this.data['wind_speedy'],
+                  style: Theme.of(context).textTheme.subtitle2,
                 ),
               ],
             ),
