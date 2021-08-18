@@ -11,18 +11,21 @@ class Weather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          this.forecast.dayOfWeek,
-        ),
-        SvgPicture.asset(
-          this.forecast.icon,
-        ),
-        Text(
-          "${this.forecast.temperature}°",
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: [
+          Text(
+            this.forecast.dayOfWeek,
+          ),
+          SvgPicture.asset(
+            this.forecast.icon,
+          ),
+          Text(
+            "${this.forecast.temperature}°",
+          ),
+        ],
+      ),
     );
   }
 }
