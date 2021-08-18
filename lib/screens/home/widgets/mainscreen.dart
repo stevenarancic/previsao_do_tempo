@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:previsao_do_tempo/models/forecast.dart';
+import 'package:previsao_do_tempo/screens/home/widgets/weather.dart';
 import 'package:previsao_do_tempo/shared/find_icon.dart';
 
 class MainScreen extends StatelessWidget {
@@ -16,6 +18,10 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            padding: EdgeInsets.only(
+              top: 80,
+              bottom: 35,
+            ),
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
@@ -60,11 +66,28 @@ class MainScreen extends StatelessWidget {
                   this.data['wind_speedy'],
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
+                SizedBox(
+                  height: 50,
+                  child: ListView.builder(
+                    itemBuilder: builder,
+                    itemCount: 7,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget builder(BuildContext context, int index) {
+    Forecast forecast = Forecast(
+      dayOfWeek: this.data['forecast'][index]['weekday'],
+      icon: findIcon(this.data['forecast'][index]['condition']),
+      temperature: this.data['forecast'][index]['max'],
+    );
+    return Weather(forecast);
   }
 }
